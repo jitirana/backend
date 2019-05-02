@@ -1,0 +1,26 @@
+{
+  "name": "minitodo-banckend",
+  "version": "1.0.0",
+  "description": "This is the banckend of the minitodo",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minitodo/backend.git"
+  },
+  "author": "Ze Igor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minitodo/backend/issues"
+  },
+  "homepage": "https://github.com/minitodo/backend#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
