@@ -61,7 +61,7 @@ router.post('/kbboard/list', function (req, res) {
         if(err){
           res.json({error:'error to create a new list'});
         } else{
-          //retur the created list
+          //return the created list
           res.send(r.ops);
         }
       });
