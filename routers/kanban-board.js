@@ -47,4 +47,18 @@ router.post("/kbboard/list", function(req, res) {
     });
 });
 
+// Delete a list.
+
+router.post("/kbboard/list/rm", (req, res) => {
+  console.log(req.body.listId);
+  BoardList.deleteOne({ _id: req.body.listId }, err => {
+    if (err) {
+      res.statusCode = 500;
+      res.send({ error: "Erro to remove the list" });
+    } else {
+      res.send(req.body.listId);
+    }
+  });
+});
+
 module.exports = router;
