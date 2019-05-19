@@ -48,7 +48,6 @@ router.post("/kbboard/list", function(req, res) {
 });
 
 // Delete a list.
-
 router.post("/kbboard/list/rm", (req, res) => {
   console.log(req.body.listId);
   BoardList.deleteOne({ _id: req.body.listId }, err => {
@@ -56,6 +55,15 @@ router.post("/kbboard/list/rm", (req, res) => {
       res.statusCode = 500;
       res.send({ error: "Erro to remove the list" });
     } else {
+      // reorder the positions of all lists in database after removing a list
+      BoardList.find()
+        .sort({ position: 1 })
+        .exec((err, docs) => {
+          docs.forEach((doc, index) => {
+            doc.position = index;
+            doc.save();
+          });
+        });
       res.send(req.body.listId);
     }
   });
